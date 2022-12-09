@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Variable Size Tic-Tac-Toe By Eric Burton-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="tictactoe.css">
+  <title>Tic Tac Toe</title>
+</head>
+
+<body>
+  <header><h1>Tic-Tac-Toe</h1></header>
+  <section id="container">
+    <section id="text-input">
+      <label for="board-size">
+        Please enter the your desired board size multiplier
+        <br/>
+        (minimum: 3, maximum: 10)
+      </label>
+      <br/>
+      <input id="board-size" type="number" min="3" max="10" value="3">
+    </section>
+
+    <p id='player-message-area'>Click the start button to play!</p>
+    <p id='current-player-value'>O</p>
+    
+    <section id="board"></section>
+  </section>
+
+  <button id="start-button" autofocus>Start</button>
+  <button id="reset-button">Reset</button>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="tictactoe.js"></script>
+</body>
+</html>
