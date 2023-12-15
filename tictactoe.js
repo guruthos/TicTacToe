@@ -1,17 +1,17 @@
 //Tic Tac Toe by Eric Burton
 //****VARIABLE DECLARATIONS***********************************
 
-var limit;
-var running = true;
-var indices = {};
-var player = 'O';
-var boardArray = [];
-var testSegment = [];  /* board "lanes" are copied here tested to make
+let limit;
+let running = true;
+let indices = {};
+let player = 'O';
+let boardArray = [];
+let testSegment = [];  /* board "lanes" are copied here tested to make
                           sure all elements are the same, one at a time*/
 //****SETUP NEW BOARD*****************************************
 //Start button shows game board and reset button while hiding itself
 $('#start-button').click(function() {
-  var playerInput = parseInt(document.getElementById("board-size").value);
+  let playerInput = parseInt(document.getElementById("board-size").value);
   console.log(playerInput)
   limit = playerInput;
   indices = {
@@ -119,12 +119,12 @@ function addSquares(numberOfSquares) {
     //hard code width of #board element based on size of squares used.
     //size of squares used is based on number of squares on board, which
     //is defined by the user.
-    var boardWidthInPixels = (102 * numberOfSquares); //100px width + 1 px borders (left and right)
+    let boardWidthInPixels = (102 * numberOfSquares); //100px width + 1 px borders (left and right)
     $("#board").width(boardWidthInPixels + "px");
 
-    var tempId = 0;
-    for(var p = 0; p < numberOfSquares; p += 1) {
-      for(var i = 0; i < numberOfSquares; i += 1) {
+    let tempId = 0;
+    for(let p = 0; p < numberOfSquares; p += 1) {
+      for(let i = 0; i < numberOfSquares; i += 1) {
         $('#board').append('<div class="square"></div>');
       }
       $('#board').append('<div class="clear"></div>');
@@ -138,12 +138,12 @@ function addSquares(numberOfSquares) {
     });
 
   } if (numberOfSquares <= 4) { //If game board is smaller than 5 X 5
-    var boardWidthInPixels = (154 * numberOfSquares); //150px width + 2 px borders (left and right)
+    let boardWidthInPixels = (154 * numberOfSquares); //150px width + 2 px borders (left and right)
     $("#board").width(boardWidthInPixels + "px");
 
-    var tempId = 0;
-    for(var p = 0; p < numberOfSquares; p += 1) {
-      for(var i = 0; i < numberOfSquares; i += 1) {
+    let tempId = 0;
+    for(let p = 0; p < numberOfSquares; p += 1) {
+      for(let i = 0; i < numberOfSquares; i += 1) {
         $('#board').append('<div class="square-large"></div>');
       }
       $('#board').append('<div class="clear"></div>');
@@ -167,9 +167,9 @@ function isMatching(testElement) {
 
 // COLUMN CHECK
 function columnCheck(beginningIndex, endingIndex, columnHeight) {
-  for(var columnIndex = beginningIndex; columnIndex <= endingIndex; columnIndex += 1) {
-    var boardIndex = columnIndex;
-    for(var testIndex = beginningIndex; testIndex <= endingIndex; testIndex += 1) {
+  for(let columnIndex = beginningIndex; columnIndex <= endingIndex; columnIndex += 1) {
+    let boardIndex = columnIndex;
+    for(let testIndex = beginningIndex; testIndex <= endingIndex; testIndex += 1) {
       testSegment[testIndex] = boardArray[boardIndex];
       boardIndex += columnHeight;
     }   
@@ -183,9 +183,9 @@ function columnCheck(beginningIndex, endingIndex, columnHeight) {
 
 // ROW CHECK
 function rowCheck(beginningIndex, endingIndex, rowLength) {
-  var boardIndex = 0;
-  for(var rowIndex = 0; rowIndex <= endingIndex; rowIndex += 1) {
-    for(var testIndex = beginningIndex; testIndex <= endingIndex; testIndex += 1) {
+  let boardIndex = 0;
+  for(let rowIndex = 0; rowIndex <= endingIndex; rowIndex += 1) {
+    for(let testIndex = beginningIndex; testIndex <= endingIndex; testIndex += 1) {
       testSegment[testIndex] = boardArray[boardIndex];
       boardIndex += 1;
     }
@@ -199,8 +199,8 @@ function rowCheck(beginningIndex, endingIndex, rowLength) {
 
 // DIAGONAL CHECK
 function diagonalCheck(beginningIndex, endingIndex, incremental, diagonalLength) {
-  var testIndex = 0;
-  for(var boardIndex = beginningIndex; testIndex <= endingIndex; boardIndex += incremental) {
+  let testIndex = 0;
+  for(let boardIndex = beginningIndex; testIndex <= endingIndex; boardIndex += incremental) {
     testSegment[testIndex] = boardArray[boardIndex];
     testIndex += 1;
   }
